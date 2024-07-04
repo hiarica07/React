@@ -15,7 +15,7 @@ const MyCard = ({veri}) => {
     {veri.map(({name,text,img,id})=>{
  //!arrow (map) süslü kullandığında return ister.reactta süslü koymayabilirsiniz, o zaman returne de ihtiyaç olmaz
       return (
-        <Col key={id}>
+        <Col className="d-flex justify-content-center col-sm-12 col-md-6 col-lg-4" key={id}>
         <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={img} />
       <Card.Body>
