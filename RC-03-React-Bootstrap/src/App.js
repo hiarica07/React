@@ -1,9 +1,15 @@
 import "./App.css";
 
+import "bootstrap/dist/css/bootstrap.min.css"
+import Navbar from "./Components/MyNavbar";
+import Slider from "./Components/Slider";
+
+
 function App() {
   return (
-    <div className="App">
-      <h1>DE09</h1>
+    <div>
+      <Navbar/>
+      <Slider/>
     </div>
   );
 }
