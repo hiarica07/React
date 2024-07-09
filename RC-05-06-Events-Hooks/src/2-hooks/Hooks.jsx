@@ -17,6 +17,7 @@
 //* =============================================================
 
 import React, { useState } from "react";
+import Events from "../1-events-hooksIntro/Events";
 
 const Hooks = () => {
   const [sayac, setSayac] = useState(0);
@@ -29,6 +30,8 @@ const Hooks = () => {
   const arttir = () => {
     setSayac(sayac + 1);
   };
+
+  const [toggle,setToggle]=useState(true)
 
   //!1.yol
 
@@ -77,7 +80,10 @@ const Hooks = () => {
       <button onClick={changeName} className="btn btn-primary m-2">
         CHANGEname
       </button>
-      <button onClick={()=>setKisi({...kisi, yas:30})} className="btn btn-success">CHANGEyas</button>
+      <button onClick={()=>setKisi({...kisi, yas:30})} className="btn btn-success m-2">CHANGEyas</button>
+      <button onClick={()=>setToggle(!toggle)} className="btn btn-secondary m-2">Show</button>
+
+      {toggle===true? <Events/>:""}
     </div>
   );
 };
