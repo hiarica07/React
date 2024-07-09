@@ -30,13 +30,32 @@ const Hooks = () => {
     setSayac(sayac + 1);
   };
 
-  const changeAll = () =>{
-    setKisi({  
+  //!1.yol
+
+  const changeAll = () => {
+    if (kisi.isim === "mustafa") {
+      setKisi({
         isim: "halil",
         meslek: "junior-dev",
         yas: "28",
-        renk: "black",})
+        renk: "black",
+      });
+    } else {
+      setKisi({
+        isim: "mustafa",
+        meslek: "developer",
+        yas: "45",
+        renk: "red",
+      });
+    }
+  };
+
+  const changeName=()=>{
+
+    setKisi({...kisi,isim:"halil",renk:"red"})
   }
+
+  
   return (
     <div className="container text-center">
       <h1>*****************</h1>
@@ -46,15 +65,19 @@ const Hooks = () => {
         ARTTIR
       </button>
       <h1 className="mt-5">USESTATE OBJECT KULLANIMI</h1>
-      <div style={{color:kisi.renk}}>
-      <h1>{kisi.isim}</h1>
-      <h1>{kisi.meslek}</h1>
-      <h1>{kisi.yas}</h1>
-      <h1>{kisi.renk}</h1>
+      <div style={{ color: kisi.renk }}>
+        <h1>{kisi.isim}</h1>
+        <h1>{kisi.meslek}</h1>
+        <h1>{kisi.yas}</h1>
+        <h1>{kisi.renk}</h1>
       </div>
-      <button onClick={changeAll} className="btn btn-primary m-2">CHANGEall</button>
-      <button className="btn btn-info">CHANGEname</button>
-      
+      <button onClick={changeAll} className="btn btn-primary m-2">
+        CHANGEall
+      </button>
+      <button onClick={changeName} className="btn btn-primary m-2">
+        CHANGEname
+      </button>
+      <button onClick={()=>setKisi({...kisi, yas:30})} className="btn btn-success">CHANGEyas</button>
     </div>
   );
 };
