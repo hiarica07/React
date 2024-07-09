@@ -31,34 +31,53 @@ const Hooks = () => {
     setSayac(sayac + 1);
   };
 
-  const [toggle,setToggle]=useState(true)
+  const [toggle, setToggle] = useState(true);
 
   //!1.yol
 
-  const changeAll = () => {
-    if (kisi.isim === "mustafa") {
-      setKisi({
-        isim: "halil",
-        meslek: "junior-dev",
-        yas: "28",
-        renk: "black",
-      });
-    } else {
-      setKisi({
-        isim: "mustafa",
-        meslek: "developer",
-        yas: "45",
-        renk: "red",
-      });
+//   const changeAll = () => {
+//     if (kisi.isim === "mustafa") {
+//       setKisi({
+//         isim: "halil",
+//         meslek: "junior-dev",
+//         yas: "28",
+//         renk: "black",
+//       });
+//     } else {
+//       setKisi({
+//         isim: "mustafa",
+//         meslek: "developer",
+//         yas: "45",
+//         renk: "red",
+//       });
+//     }
+//   };
+
+  //!2.Yol
+  const changeAll=()=>{
+    setToggle(!toggle)
+
+    if(toggle){
+        setKisi({
+            isim:"mustafa",
+            meslek:"developer",
+            yas:45,
+            renk:"red",
+        })
+    }else{
+        setKisi({
+            isim:"halil",
+            meslek:"Jr.Dev",
+            yas:28,
+            renk:"orange"
+        })
     }
-  };
-
-  const changeName=()=>{
-
-    setKisi({...kisi,isim:"halil",renk:"red"})
   }
 
-  
+  const changeName = () => {
+    setKisi({ ...kisi, isim: "halil", renk: "red" });
+  };
+
   return (
     <div className="container text-center">
       <h1>*****************</h1>
@@ -80,10 +99,20 @@ const Hooks = () => {
       <button onClick={changeName} className="btn btn-primary m-2">
         CHANGEname
       </button>
-      <button onClick={()=>setKisi({...kisi, yas:30})} className="btn btn-success m-2">CHANGEyas</button>
-      <button onClick={()=>setToggle(!toggle)} className="btn btn-secondary m-2">Show</button>
+      <button
+        onClick={() => setKisi({ ...kisi, yas: 30 })}
+        className="btn btn-success m-2"
+      >
+        CHANGEyas
+      </button>
+      <button
+        onClick={() => setToggle(!toggle)}
+        className="btn btn-secondary m-2"
+      >
+        Show
+      </button>
 
-      {toggle===true? <Events/>:""}
+      {toggle && <Events />}
     </div>
   );
 };
