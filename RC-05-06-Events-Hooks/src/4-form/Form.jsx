@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-
+// !JSX ile HTML arasında çok fazla fark olmamakla birlikte bazı önemli farklar da mevcut elbette.
+//! HTML'de class olarak tanımlanan nitelik JSX'de className olarak tanımlanmalı.
+//! HTML'de tek kelime olmayan tabindex gibi nitelikler JSX'de camelCase yapısına uygun olarak tabIndex şeklinde dönüştürülür.
+//! HTML'de onclick, onchange gibi nitelikler yukarıdaki camelCase örneğine göre onClick, onChange şeklinde dönüştürülür.
+//! HTML'de label etiketinde belirtilen for attribute ü JSX'de htmlFor olarak tanımlanmalı.
+//! Ayrıca JSX de  javascript ifadeleri {} içinde çalıştırılabilir. Buna map, && gibi yapılarda dahil.
 const Form = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -41,6 +46,8 @@ const Form = () => {
             value={name}
             aria-describedby="emailHelp"
             onChange={(e) => setName(e.target.value)}
+            //* required alanların çalışması için formları onSubmit ile göndermeliyiz. onClick ile gönderdiğimizde çalışmaz
+            required
           />
           <div id="emailHelp" className="form-text">
             We'll never share your email with anyone else.
@@ -56,6 +63,7 @@ const Form = () => {
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </div>
         <div className="mb-3">
