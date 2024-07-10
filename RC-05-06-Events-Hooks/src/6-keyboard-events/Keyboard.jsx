@@ -14,6 +14,10 @@ const Keyboard = () => {
         alert("kopyalama_yapamazsin_hayirdir")
         e.preventDefault() // kopyalama yaptırtmadı.
     }
+    const handleCut =(e)=>{
+        alert("kesme_de_yapamazsin_hayirdir")
+        e.preventDefault() // kopyalama yaptırtmadı.
+    }
   return (
     <div className="container mt-4">
       <h2>Keyboard Events</h2>
@@ -32,6 +36,7 @@ const Keyboard = () => {
           cols="30"
           rows="10"
           onCopy={handleCopy}
+          onCut={handleCut}
         ></textarea>
       </div>
     </div>
