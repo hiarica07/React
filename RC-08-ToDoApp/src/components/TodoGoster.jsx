@@ -12,7 +12,7 @@ const TodoGoster = ({ doing, setDoing }) => {
   return (
     <div>
       {doing.map((x) => (
-        <div  className={x.isDone ? "done" : "gorev"}>
+        <div key={x.id} className={x.isDone ? "done" : "gorev"}>
           <h3>
             {x.text}
 
