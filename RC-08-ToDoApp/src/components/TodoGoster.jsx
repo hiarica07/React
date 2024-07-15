@@ -1,22 +1,31 @@
 import React from "react";
+import { MdDeleteForever } from "react-icons/md";
+import { FaCheckCircle } from "react-icons/fa";
 
 const TodoGoster = ({ doing, setDoing }) => {
-  console.log(doing);
+//   console.log(doing);
+
+  const deleteTodo = (id) =>{
+    setDoing(doing.filter((a)=>a.id!==id))
+    
+  }
   return (
     <div>
       {doing.map((x) => (
-        <div>
+        <div  className={x.isDone ? "done" : "gorev"}>
+          <h3>
+            {x.text}
 
-<h3>
-{x.text} 
+            <div>
+                    <FaCheckCircle onClick={()=>setDoing(
+                        doing.map((a)=>a.id===x.id ?  {...a, isDone: !a.isDone} : a)
 
-<div>
-    {/* ikonlar */}
-</div>
-
-</h3>
-<h6>{x.day} </h6>
-
+                    )} style={{color:"green", fontSize:"20px"}}/>
+                    <MdDeleteForever onClick={()=>deleteTodo(x.id)} style={{color:"red", fontSize:"25px"}} />
+              {/* ikonlar */}
+            </div>
+          </h3>
+          <h6>{x.day} </h6>
         </div>
       ))}
     </div>
