@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import uuid from 'react-uuid'
 
-const HastaEkle = ({hastalar, setHastalar}) => {
+const HastaEkle = ({hastalar, setHastalar,doktorlar}) => {
 const[hastaName,setHastaName]=useState("")
 const[hastaTarih,setTarih]=useState("")
 
@@ -13,7 +13,7 @@ setHastalar([...hastalar, {
   text: hastaName,
   day: hastaTarih,
   isDone: false,
-  myDoctor: "DR İpek Bilir",}])
+  myDoctor: doktorlar[0].doctorName}])
 
 // setHastalar a gidildiginde hemen altta console log var ise calisir, usestate in yaptigi isi goremeyiz.Bunun icin log submit fonksiyonunun sonrasinda yazilmalidir 
 setHastaName("")
@@ -45,7 +45,7 @@ setTarih("")
         </div>
 
         <button type="submit" className="kayit btn-submit">
-          <span style={{ color: "#6a0707" }}> dr un adı</span> için kayıt
+          <span style={{ color: "#6a0707" }}>{doktorlar[0].doctorName}</span> için kayıt
           oluştur
         </button>
       </form>
