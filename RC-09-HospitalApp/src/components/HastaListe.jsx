@@ -4,6 +4,11 @@ const HastaListe = ({ hastalar, setHastalar, doktorlar }) => {
   
   // (doktorlar.length ===1) ? (setHastalar(hastalar.filter((a)=> a.myDoctor===doktorlar[0].doctorName))): hastalar
 
+  const deleteHasta = (id) =>{
+
+    setHastalar(hastalar.filter((x)=> x.id !== id  ))
+
+  }
 
   return (
     <div>
@@ -28,7 +33,7 @@ const HastaListe = ({ hastalar, setHastalar, doktorlar }) => {
                     <h3>{hasta.myDoctor}</h3>
                   </div>
                   <div>
-                    <FaTimesCircle style={{ color: "red" }} />
+                    <FaTimesCircle style={{ color: "red" }} onClick={()=>deleteHasta(hasta.id)}/>
                   </div>
                 </div>
               )
