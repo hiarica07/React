@@ -3,7 +3,10 @@
 import { AiFillDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
 import EditBilgi from "./EditBilgi";
-const BilgiList = () => {
+import { useState } from "react";
+const BilgiList = ({tutorials,deleteBilgi,putBilgiler}) => {
+
+  const [editItem,setEditItem] = useState("")
   
 
   return (
@@ -20,17 +23,18 @@ const BilgiList = () => {
           </tr>
         </thead>
         <tbody>
-          {[].map(() => {
+          {tutorials.map(({id,title,description}) => {
             return (
               <tr >
-                <th></th>
-                <td></td>
-                <td> </td>
+                <th>{id}</th>
+                <td>{title}</td>
+                <td>{description}</td>
                 <td className="text-center ">
                   <AiFillDelete
                     type="button"
                     size={22}
                     className="text-danger cursor-pointer"
+                    onClick={()=>deleteBilgi(id)}
                  
 
                   />
@@ -41,6 +45,7 @@ const BilgiList = () => {
                     size={20}
                     type="button"
                     className="me-2 text-warning cursor-pointer"
+                    onClick={()=>setEditItem({id,title,description})}
                 
                   />
                 </td>
@@ -49,7 +54,7 @@ const BilgiList = () => {
           })}
         </tbody>
       </table>
-      <EditBilgi  />
+      <EditBilgi editItem={editItem} setEditItem={setEditItem} putBilgiler={putBilgiler} />
     </div>
   );
 };
