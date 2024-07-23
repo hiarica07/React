@@ -7,6 +7,7 @@ import Teacher from "./pages/Teacher"
 import CourseCard from "./pages/CourseCard"
 import Paths from "./pages/Paths";
 import ContactForm from "./pages/ContactForm";
+import TeacherDetails from "./pages/TeacherDetails";
 
 function App() {
   return (
@@ -16,6 +17,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/teacher" element={<Teacher />} />
+          <Route path="/teacher/:id" element={<TeacherDetails />} />
+
+          {/* Routelarda degisken tanımlanacak ise onune suslu yerine iki nokta koyuyoruz  */}
+
           <Route path="/courses" element={<CourseCard/>} />
           <Route path="/contact" element={<ContactForm/>} />
           <Route path="/paths" element={<Paths/>} />
