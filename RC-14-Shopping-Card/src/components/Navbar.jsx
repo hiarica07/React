@@ -1,5 +1,5 @@
-import React from 'react'
-import {NavLink} from "react-router-dom"
+import React from "react";
+import { NavLink } from "react-router-dom";
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-primary">
@@ -19,37 +19,26 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <NavLink className="nav-link " aria-current="page" to="/">
+              <NavLink style={({isActive})=>({textDecoration:isActive?"underline":""})} className="nav-link " aria-current="page" to="/">
                 Home
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/new-product">
+              <NavLink style={({isActive})=>({textDecoration:isActive?"underline":""})} className="nav-link" to="/new-product">
                 New Product
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink
-             
-                className="nav-link"
-              >
-                Product List
-              </NavLink>
+              <NavLink style={({isActive})=>({textDecoration:isActive?"underline":""})} className="nav-link" to="/products">Product List</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink
-               
-                className="nav-link"
-              
-              >
-                About
-              </NavLink>
+              <NavLink style={({isActive})=>({textDecoration:isActive?"underline":""})} className="nav-link" to="/about">About</NavLink>
             </li>
           </ul>
         </div>
       </div>
     </nav>
   );
-}
+};
 
-export default Navbar
+export default Navbar;
