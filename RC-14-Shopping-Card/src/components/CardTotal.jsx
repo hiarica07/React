@@ -14,7 +14,7 @@ const CardTotal = ({urunler}) => {
         <tr className="text-end">
           <th className="text-start">Subtotal</th>
           <td>
-            $<span className="subtotal">{subTotal}</span>
+            $<span className="subtotal">{(subTotal).toFixed(2)}</span>
           </td>
         </tr>
         <tr className="text-end">

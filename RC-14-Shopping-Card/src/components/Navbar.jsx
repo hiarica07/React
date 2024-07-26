@@ -1,6 +1,7 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 const Navbar = () => {
+
   return (
     <nav className="navbar navbar-expand-lg bg-primary">
       <div className="container-fluid">
@@ -13,6 +14,7 @@ const Navbar = () => {
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
+          
         >
           <span className="navbar-toggler-icon"></span>
         </button>
