@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { createContext, useEffect, useState } from "react";
 
-const KullaniciProvider = () => {
+//! 1-Create context
+
+export const KullaniciContext = createContext();
+
+const KullaniciProvider = ({ children }) => {
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    fetch("https://api.github.com/users")
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, []);
+
   return (
-    <div>KullaniciProvider</div>
-  )
-}
+    <KullaniciContext.Provider value={{users}}>
+    {children}</KullaniciContext.Provider>
+  );
+};
 
-export default KullaniciProvider
+export default KullaniciProvider;
