@@ -9,7 +9,9 @@ export const StudentContext =createContext()
 const App = () => {
 
 const [students, setStudents] = useState(data)
-const changeColor=(id,newRenk)=>{}
+const changeColor=(id,newRenk)=>{
+  setStudents(students.map((a)=>a.id===id ? {...a,color:newRenk}: a))
+}
   
   return (
 
