@@ -1,8 +1,26 @@
-import React from 'react'
+import React, { createContext, useState } from 'react'
+import Home from './components/Home'
+import data from "./data"
+
+//! 1-context alani aciyoruz.
+
+export const StudentContext =createContext() 
 
 const App = () => {
+
+const [students, setStudents] = useState(data)
+const changeColor=(id,newRenk)=>{}
+  
   return (
-    <div>App</div>
+
+   //! 2- Bütün projeye gönderilmek üzere ilk Home sayfasını gönderilecek veriler ile sarmalladık.
+
+
+    <StudentContext.Provider value={{students,changeColor}}>
+
+    <Home/>
+
+    </StudentContext.Provider>
   )
 }
 
