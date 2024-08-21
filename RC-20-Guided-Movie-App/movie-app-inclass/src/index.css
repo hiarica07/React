@@ -102,6 +102,7 @@ body {
 }
 
 /* Login Custom CSS */
+/* Register kırmızı animasyonu */
 
 .custom-linear-gradient::before {
   background: linear-gradient(0deg, transparent, #ff4b45);
@@ -115,6 +116,8 @@ body {
   animation: animate 6s linear infinite;
   animation-delay: -3s;
 }
+
+
 
 @keyframes animate {
   0% {
