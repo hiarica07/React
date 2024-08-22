@@ -9,7 +9,7 @@ const Register = () => {
   const[firstName,setFirstName]=useState()
   const[lastName,setLastName]=useState()
 
-const {createUser} = useContext(AuthContextKai)
+const {createUser,signUpGoogle} = useContext(AuthContextKai)
 
 const handleSubmit = (e) =>{
   e.preventDefault()
@@ -31,18 +31,18 @@ const handleSubmit = (e) =>{
               type="text"
               name="floating_text"
               id="floating_text"
-              class=" peer"
+              className=" peer"
               placeholder=" "
               required
               onChange={(e)=>setFirstName(e.target.value)}
             />
-            <label htlmFor="floating_text" className="">
+            <label htmlFor="floating_text" className="">
               First Name
             </label>
           </div>
           <div className="relative z-0 w-full mb-5 group">
             <input
-              class=" peer"
+              className=" peer"
               placeholder=" "
               name="floating_text"
               type="text"
@@ -53,7 +53,7 @@ const handleSubmit = (e) =>{
           </div>
           <div className="relative z-0 w-full mb-5 group">
             <input
-              class=" peer"
+              className=" peer"
               placeholder=" "
               name="floating_email"
               type="email"
@@ -65,7 +65,7 @@ const handleSubmit = (e) =>{
           </div>
           <div className="relative z-0 w-full mb-5 group">
             <input
-              class=" peer"
+              className=" peer"
               placeholder=" "
               name="floating_password"
               type="password"
@@ -80,7 +80,8 @@ const handleSubmit = (e) =>{
           <button
             type="button"
             className="btn-danger flex justify-between text-center "
-          
+            onClick={()=>signUpGoogle()}
+
           >
             Continue with Google
             <GoogleIcon color="currentColor" />
