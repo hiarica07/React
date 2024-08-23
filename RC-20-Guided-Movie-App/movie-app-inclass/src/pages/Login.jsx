@@ -9,7 +9,7 @@ const Login = () => {
   const [password, setPassword] = useState();
  
 
-  const { signIn, signUpGoogle } = useContext(AuthContextKai);
+  const { signIn, signUpGoogle, forgotPassword } = useContext(AuthContextKai);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -52,6 +52,7 @@ const Login = () => {
             <span
              
               className="py-3 font-[0.75em] cursor-pointer decoration-none text-gray-500 hover:text-[#ff4b45]"
+              onClick={()=> forgotPassword(email)}
             >
               Forgot Password
             </span>

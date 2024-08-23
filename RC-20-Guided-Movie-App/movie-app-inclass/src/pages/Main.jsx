@@ -7,17 +7,24 @@ const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}
 
 const Main = () => {
 
-  const{movies,loading}=useContext(MovieContextKai)
+  const{movies,loading,getMovies}=useContext(MovieContextKai)
 
   const [query,setQuery]=useState("")
 
+  const handleSubmit = (e) =>{
+    e.preventDefault()
+    getMovies(SEARCH_API + query)
+
+  }
+
   return (
     <div>
-     <form className="flex justify-center p-2" >
+     <form onSubmit={handleSubmit} className="flex justify-center p-2" >
         <input
           type="search"
           className="w-80 h-8 rounded-md p-1 m-2"
           placeholder="Search a movie..."
+          onChange={(e)=>setQuery(e.target.value)}
          
         />
         <button className="btn-danger-bordered" type="submit">
@@ -32,7 +39,7 @@ const Main = () => {
           role="status"
         >
           <span className="visually-hidden">Loading...</span>
-        </div>) : (movies.map((movie)=><MovieCard {...movie}  />))}
+        </div>) : (movies.map((movie)=><MovieCard key={movie.id} {...movie}  />))}
        
       </div>
     </div>

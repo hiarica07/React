@@ -14,17 +14,17 @@ const [movies,setMovies] = useState([])
 const [loading,setLoading] = useState(false)
 
 useEffect(()=>{
-  getMovies()
+  getMovies(BASE_URL)
 },[])
 
-const getMovies=()=>{
+const getMovies=(API_ADDRESS)=>{
   setLoading(true)
-  axios.get(BASE_URL).then((res)=>setMovies(res.data.results)).catch((err)=>console.log(err)).finally(()=>setLoading(false))
+  axios.get(API_ADDRESS).then((res)=>setMovies(res.data.results)).catch((err)=>console.log(err)).finally(()=>setLoading(false))
   
 }
 
   return (
-    <MovieContextKai.Provider value={{movies,loading}}>
+    <MovieContextKai.Provider value={{movies,loading,getMovies}}>
         {children}
     </MovieContextKai.Provider>
   )
