@@ -2,7 +2,15 @@ import React from 'react'
 
 const CardGrid = () => {
   return (
-    <div>CardGrid</div>
+    <div>
+
+      
+
+
+
+
+
+    </div>
   )
 }
 

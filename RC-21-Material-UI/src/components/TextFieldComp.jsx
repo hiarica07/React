@@ -1,5 +1,7 @@
 import {
+  Avatar,
   Box,
+  Button,
   Container,
   FormControl,
   IconButton,
@@ -10,13 +12,14 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 const TextFieldComp = () => {
   let errorr = true;
+  const [show, setShow] = useState(true);
 
   const currencies = [
     {
@@ -91,22 +94,35 @@ const TextFieldComp = () => {
               Password
             </InputLabel>
             <OutlinedInput
-              // type={show ? "text" : "password"}
+              type={show ? "text" : "password"}
               id="outlined-adornment-password"
               endAdornment={
                 <InputAdornment position="end">
                   <IconButton
                     aria-label="toggle password visibility"
                     edge="end"
-                    // onClick={() => setShow(!show)}
+                    onClick={() => setShow(!show)}
                   >
-                    {true ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                    {show ? <VisibilityIcon /> : <VisibilityOffIcon />}
                   </IconButton>
                 </InputAdornment>
               }
               label="Password"
             />
           </FormControl>
+
+          <Button
+            fullWidth
+            variant="contained"
+            color="error"
+            sx={{ background: "blue", gap: 3 }}
+          >
+            SUBMIT
+            <Avatar
+              alt=""
+              src="https://cdn.pixabay.com/photo/2019/11/29/21/30/girl-4662158_1280.jpg"
+            />
+          </Button>
         </Box>
       </Container>
     </div>
