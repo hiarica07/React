@@ -1,6 +1,23 @@
 import React from 'react'
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteUser } from '../features/yetkiSlice';
+import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
+
+  const {email}=useSelector((state)=>state.yetkiSlice)
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const handleLogOut = () =>{
+    dispatch(deleteUser())
+    navigate("/login")
+  }
+
+
+
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="secondary">
@@ -12,8 +29,13 @@ const Navbar = () => {
           >
             Clarusway News
           </Typography>
-
-          <Button color="inherit">LogOut</Button>
+          {
+            email ? (<Button color="inherit" onClick={handleLogOut} >LogOut</Button>):
+            <Button color="inherit">LogIn</Button>
+            
+            }
+          
+          
         </Toolbar>
       </AppBar>
     </Box>
